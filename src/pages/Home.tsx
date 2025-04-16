@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Header from '../components/Header';
 import FolderList from '../features/folders/FolderList';
 import NoteList from '../features/notes/NoteList';
 import NoteEditor from '../features/notes/NoteEditor';
-import { Note } from '../components/NoteCard';
-import { Folder } from '../components/FolderItem';
 import { useFolders } from '../features/folders/folderStore';
 import { useNotes } from '../features/notes/noteStore';
 
@@ -67,7 +65,6 @@ const Home: React.FC = () => {
         <div className="flex-1 overflow-hidden">
           <NoteEditor
             note={notes.find(n => n.id === activeNote) || null}
-            folders={folders}
             onSave={updateNote}
             onClose={() => setActiveNote(null)}
           />
