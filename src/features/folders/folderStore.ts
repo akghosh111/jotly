@@ -16,7 +16,7 @@ interface FolderState {
 const folderIcons = ['📁', '📓', '📔', '📕', '📗', '📘', '📙'];
 const folderColors: FolderColor[] = ['yellow', 'blue', 'green', 'rose', 'purple'];
 
-export const useFolders = create<FolderState>((set, get) => ({
+export const useFolders = create<FolderState>((set) => ({
   folders: getFolders(),
   activeFolder: getActiveFolder(),
   

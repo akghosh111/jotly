@@ -3,12 +3,11 @@ import { Note } from '../../components/NoteCard';
 
 interface NoteEditorProps {
   note: Note | null;
-  folders: { id: string; name: string }[];
   onSave: (updatedNote: Note) => void;
   onClose: () => void;
 }
 
-const NoteEditor: React.FC<NoteEditorProps> = ({ note, folders, onSave, onClose }) => {
+const NoteEditor: React.FC<NoteEditorProps> = ({ note, onSave, onClose }) => {
   const [title, setTitle] = useState(note?.title || '');
   const [content, setContent] = useState(note?.content || '');
   const [isSaving, setIsSaving] = useState(false);

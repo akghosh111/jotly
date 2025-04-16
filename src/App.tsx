@@ -6,12 +6,12 @@ import bgImage from './assets/bg.png';
 import NoteEditor from './features/notes/NoteEditor';
 import { FolderColor } from './components/FolderItem';
 
-const FOLDER_COLORS: { color: FolderColor; label: string; bg: string; text: string }[] = [
-  { color: 'yellow', label: 'Yellow', bg: 'bg-yellow-100', text: 'text-amber-600' },
-  { color: 'blue', label: 'Blue', bg: 'bg-blue-100', text: 'text-blue-600' },
-  { color: 'green', label: 'Green', bg: 'bg-green-100', text: 'text-green-600' },
-  { color: 'rose', label: 'Rose', bg: 'bg-red-100', text: 'text-red-600' },
-  { color: 'purple', label: 'Purple', bg: 'bg-purple-100', text: 'text-purple-600' }
+const FOLDER_COLORS: { color: FolderColor; label: string; bg: string }[] = [
+  { color: 'yellow', label: 'Yellow', bg: 'bg-yellow-100' },
+  { color: 'blue', label: 'Blue', bg: 'bg-blue-100' },
+  { color: 'green', label: 'Green', bg: 'bg-green-100' },
+  { color: 'rose', label: 'Rose', bg: 'bg-red-100' },
+  { color: 'purple', label: 'Purple', bg: 'bg-purple-100' }
 ];
 
 const App: React.FC = () => {
@@ -193,7 +193,7 @@ const App: React.FC = () => {
                     {/* Color Picker Dropdown */}
                     {showColorPicker === folder.id && (
                       <div className="absolute right-0 mt-2 w-48 py-2 bg-white/70 backdrop-blur-md rounded-xl shadow-xl z-10 border border-white/20 animate-fade-in">
-                        {FOLDER_COLORS.map(({ color, label, bg, text }) => (
+                        {FOLDER_COLORS.map(({ color, label, bg }) => (
                           <button
                             key={color}
                             onClick={(e) => {
@@ -305,7 +305,6 @@ const App: React.FC = () => {
           <div className="bg-white/80 backdrop-blur-md rounded-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto border border-white/20 shadow-2xl">
             <NoteEditor
               note={notes.find(n => n.id === activeNote) || null}
-              folders={folders}
               onSave={updateNote}
               onClose={() => setActiveNote(null)}
             />
